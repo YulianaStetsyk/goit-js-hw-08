@@ -5,11 +5,11 @@
   "homepage": "https://github.com/YulianaStetsyk/goit-js-hw-08.git",
   "scripts": {
     "start": "parcel src/*src/index.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-08/"
+    "build": "parcel build src/*.html --public-url /https://github.com/YulianaStetsyk/goit-js-hw-08.git/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/goit-js-hw-08.git"
+    "url": "git+https://github.com/YulianaStetsyk/goit-js-hw-08.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
