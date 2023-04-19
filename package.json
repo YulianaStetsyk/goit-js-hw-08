@@ -5,7 +5,7 @@
   "homepage": "https://github.com/YulianaStetsyk/goit-js-hw-08.git",
   "scripts": {
     "start": "parcel src/*src/index.html",
-    "build": "parcel build src/*.html --public-url /https://github.com/YulianaStetsyk/goit-js-hw-08.git/"
+    "build": "parcel build src/*.html --public-url https://github.com/YulianaStetsyk/goit-js-hw-08.git/"
   },
   "repository": {
     "type": "git",
