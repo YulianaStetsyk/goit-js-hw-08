@@ -1,41 +1,39 @@
 // Add imports above this line
 import { galleryItems } from './gallery-items';
 // Change code below this line
-
-console.log(galleryItems);
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+// Change code below this line
+const imageList = document.querySelector('.gallery');
+let imageHTML = '';
+galleryItems.forEach(item => {
+  let image = `
+  <li class="gallery__item">
+    <a class="gallery__link" href="${item.original}">
+      <img
+        class="gallery__image"
+        src="${item.preview}"
+        alt="Image description"
+      />
+    </a>
+  </li>`;
 
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-import { galleryItems } from './gallery-items.js';
+  imageHTML += image;
+});
+imageList.innerHTML = imageHTML;
 
-console.log(galleryItems);
+imageList.addEventListener('click', onImageClick);
+let galery = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
-const galleryContainer = document.querySelector('.gallery');
-
-export function renderGalleryItems(items) {
-    const galleryItemsMarkup = items
-    .map(({ preview, original, description }) => {
-        return `
-        <li class="gallery__item">
-        <a class="gallery__link" href="${original}">
-            <img class="gallery__image" src="${preview}" alt="${description}" />
-        </a>
-        </li>
-        `;
-    })
-    .join('');
-
-    galleryContainer.innerHTML = galleryItemsMarkup;
+function onImageClick(event) {
+  event.preventDefault();
+  if (event.target === event.currentTarget) {
+    return;
+  }
+  galery.on('closed.simplelightbox', function () {
+    galery.refresh();
+  });
 }
-
-window.onload = function() {
-    const gallery = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionPosition: 'bottom',
-    captionDelay: 250,
-    });
-};
-
-renderGalleryItems(galleryItems);
